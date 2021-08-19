@@ -26,7 +26,7 @@ Build Storybook
 npm run build
 ```
 
-Build the Decanter-React package
+Build the Decanter-React-Forms package
 
 ```
 npm run package

@@ -1,18 +1,18 @@
 {
-  "name": "decanter-react",
+  "name": "decanter-react-forms",
   "version": "1.0.7",
-  "description": "Decanter React Library",
+  "description": "Decanter Extensible React Forms Library",
   "source": "src/index.js",
-  "main": "dist/decanter-react.js",
-  "module": "dist/decanter-react.module.js",
-  "esmodule": "./dist/decanter-react.modern.js",
-  "umd:main": "dist/decanter-react.umd.js",
+  "main": "dist/decanter-react-forms.js",
+  "module": "dist/decanter-react-forms.module.js",
+  "esmodule": "./dist/decanter-react-forms.modern.js",
+  "umd:main": "dist/decanter-react-forms.umd.js",
   "exports": {
     ".": {
-      "browser": "./dist/decanter-react.modern.js",
-      "import": "./dist/decanter-react.module.js",
-      "require": "./dist/decanter-react.js",
-      "umd": "./dist/decanter-react.umd.js"
+      "browser": "./dist/decanter-react-forms.modern.js",
+      "import": "./dist/decanter-react-forms.module.js",
+      "require": "./dist/decanter-react-forms.js",
+      "umd": "./dist/decanter-react-forms.umd.js"
     }
   },
   "files": [
@@ -34,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SU-SWS/decanter-react.git"
+    "url": "git+https://github.com/SU-SWS/decanter-react-forms.git"
   },
   "keywords": [
     "Decanter",
@@ -45,12 +45,12 @@
   "author": "Stanford Web Services",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/SU-SWS/decanter-react/issues"
+    "url": "https://github.com/SU-SWS/decanter-react-forms/issues"
   },
-  "homepage": "https://github.com/SU-SWS/decanter-react#readme",
+  "homepage": "https://github.com/SU-SWS/decanter-react-forms#readme",
   "dependencies": {
     "cnbuilder": "^2.6.0",
-    "decanter": "^7.0.0-alpha.7",
+    "decanter": "^7.0.0-beta.0",
     "prop-types": "^15.7.2",
     "react-hero-icon": "^0.0.7"
   },

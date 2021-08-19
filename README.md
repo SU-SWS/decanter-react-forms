@@ -1,4 +1,4 @@
-# [Decanter React](https://github.com/SU-SWS/decanter-react)
+# [Decanter React Forms](https://github.com/SU-SWS/decanter-react-forms)
 
 [![NPM](https://img.shields.io/npm/v/decanter-react.svg)](https://www.npmjs.com/package/decanter-react)
 [![Code Style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
@@ -12,7 +12,7 @@ A React Component Library using Decanter V7+ and TailWindCSS
 ## Install
 
 ```bash
-npm install --save decanter-react
+npm install --save decanter-react-forms
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ npm install --save decanter-react
 ```jsx
 import React, { Component } from "react";
 
-import { MyComponent } from "decanter-react";
+import { MyComponent } from "decanter-react-forms";
 import "decanter/dist/decanter.css";
 
 class Example extends Component {
@@ -32,7 +32,7 @@ class Example extends Component {
 
 ## Demo and Documentation
 
-Please see our storybook build website at [Decanter React - Stoybook](https://decanter-react.netlify.app). It is full of wonderful tools, markup, examples, and information about the components in this package.
+Please see our storybook build website at [Decanter React Forms - Stoybook](https://decanter-react-forms.netlify.app). It is full of wonderful tools, markup, examples, and information about the components in this package.
 
 ## Accessibility
 
@@ -43,7 +43,7 @@ This project conforms to level AA WCAG 2.0 standards as required by the universi
 
 ## Contributing
 
-We encourage you to contribute to Decanter-React! Please check out the Contributing to [Decanter React guide](https://github.com/SU-SWS/decanter-react/blob/main/CONTRIBUTING.md) for guidelines about how to proceed.
+We encourage you to contribute to Decanter-React-Forms! Please check out the Contributing to [Decanter React guide](https://github.com/SU-SWS/decanter-react-forms/blob/main/CONTRIBUTING.md) for guidelines about how to proceed.
 
 ## License
 
