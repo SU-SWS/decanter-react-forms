@@ -1,10 +1,10 @@
 module.exports = {
-  "stories": [
+  stories: [
     "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)",
-    "./stories/*.stories.@(js|jsx|ts|tsx)"
+    "./stories/*.stories.@(js|jsx|ts|tsx)",
   ],
-  "addons": [
+  addons: [
     // Default core extention
     "@storybook/addon-essentials",
     // This came out of the box. Better find out what it is.
@@ -20,9 +20,9 @@ module.exports = {
     // https://storybook.js.org/addons/storybook-addon-pseudo-states
     "storybook-addon-pseudo-states",
     // https://storybook.js.org/addons/@storybook/addon-postcss
-    "@storybook/addon-postcss"
+    "@storybook/addon-postcss",
   ],
   reactOptions: {
     fastRefresh: true,
-  }
-}
+  },
+};
