@@ -49,6 +49,7 @@ export const TextField = (
         placeholder={placeholder}
         maxLength={maxLength ?? null}
         minLength={minLength ?? null}
+        required={isRequired}
         {...props}
       />
     </div>
