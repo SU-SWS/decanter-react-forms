@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
 import { labelWeights } from "./TextField.levers";
@@ -35,6 +35,13 @@ export const TextField = (
     levers.weight = labelWeights[weight];
   }
 
+  // Handle Character Counter
+  // ---------------------------------------------------------------------------
+  const [charCount, setCharCount] = useState(0);
+  const handleOnChange = (e) => {
+    setCharCount(e.target.value.length);
+  };
+
   return (
     <div className={className}>
       <label htmlFor={id} className={dcnb(levers.weight, "su-label su-mb-5")}>
@@ -50,8 +57,16 @@ export const TextField = (
         maxLength={maxLength ?? null}
         minLength={minLength ?? null}
         required={isRequired}
+        onChange={handleOnChange}
         {...props}
       />
+      {maxLength ? (
+        <p>
+          {charCount}/{maxLength}
+        </p>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
@@ -91,6 +106,11 @@ TextField.propTypes = {
    * Font weight.
    */
   weight: PropTypes.oneOf(Object.keys(labelWeights)),
+
+  /**
+   * Is the input required?
+   */
+  isRequired: PropTypes.bool,
 
   /**
    * Max Length of Input

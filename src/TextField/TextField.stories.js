@@ -23,7 +23,7 @@ Default.storyName = "Default Text Field";
 export const Password = TextFieldTemplate.bind({});
 Password.args = {
   id: "su-text",
-  label: "Text Field",
+  label: "Password",
   weight: "bold",
   helperText: "Helper text lorem ipsum",
   placeholder: "Placeholder",
@@ -31,3 +31,15 @@ Password.args = {
   maxLength: 8,
 };
 Password.storyName = "Password Text Field";
+
+export const Email = TextFieldTemplate.bind({});
+Email.args = {
+  id: "su-text",
+  label: "Email",
+  weight: "bold",
+  helperText: "Helper text lorem ipsum",
+  placeholder: "Placeholder",
+  type: "email",
+  required: true,
+};
+Email.storyName = "Required Email Text Field";
