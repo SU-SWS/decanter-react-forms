@@ -1,6 +1,6 @@
 {
   "name": "decanter-react-forms",
-  "version": "1.0.7",
+  "version": "1.0.0",
   "description": "Decanter Extensible React Forms Library",
   "source": "src/index.js",
   "main": "dist/decanter-react-forms.js",

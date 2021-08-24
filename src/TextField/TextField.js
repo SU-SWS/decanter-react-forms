@@ -7,15 +7,10 @@ import { labelWeights } from "./TextField.levers";
  * Text Input  Component
  *
  */
-export const TextField = ({
-  className,
-  id,
-  label,
-  weight,
-  helperText,
-  placeholder,
-  type,
-}) => {
+export const TextField = (
+  { className, id, label, weight, helperText, placeholder, type },
+  props
+) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
@@ -30,7 +25,7 @@ export const TextField = ({
 
   return (
     <div className={className}>
-      <label for={id} className={dcnb(levers.weight, "su-label su-mb-5")}>
+      <label htmlFor={id} className={dcnb(levers.weight, "su-label su-mb-5")}>
         {label}
       </label>
       {helperText && <p className="su-color-cool-grey su-mb-5">{helperText}</p>}
@@ -39,6 +34,7 @@ export const TextField = ({
         className="su-input su-border-b-2 su-rounded su-px-7 su-pt-7 su-pb-8"
         type={type}
         placeholder={placeholder}
+        {...props}
       />
     </div>
   );

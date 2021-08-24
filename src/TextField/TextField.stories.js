@@ -7,7 +7,7 @@ export default {
   argTypes: {},
 };
 
-const TextFieldTemplate = ({ ...rest }) => <TextField {...rest} />;
+const TextFieldTemplate = ({ ...rest }) => <TextField {...rest} required />;
 
 export const Default = TextFieldTemplate.bind({});
 Default.args = {
@@ -19,3 +19,14 @@ Default.args = {
   type: "text",
 };
 Default.storyName = "Default Text Field";
+
+export const Password = TextFieldTemplate.bind({});
+Password.args = {
+  id: "su-text",
+  label: "Text Field",
+  weight: "bold",
+  helperText: "Helper text lorem ipsum",
+  placeholder: "Placeholder",
+  type: "password",
+};
+Password.storyName = "Password Text Field";
