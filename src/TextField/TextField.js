@@ -8,7 +8,18 @@ import { labelWeights } from "./TextField.levers";
  *
  */
 export const TextField = (
-  { className, id, label, weight, helperText, placeholder, type },
+  {
+    className,
+    id,
+    label,
+    weight,
+    helperText,
+    placeholder,
+    type,
+    maxLength,
+    minLength,
+    errorText,
+  },
   props
 ) => {
   // Defaults & Variables.
@@ -34,6 +45,8 @@ export const TextField = (
         className="su-input su-border-b-2 su-rounded su-px-7 su-pt-7 su-pb-8"
         type={type}
         placeholder={placeholder}
+        maxLength={maxLength ?? null}
+        minLength={minLength ?? null}
         {...props}
       />
     </div>
@@ -75,6 +88,16 @@ TextField.propTypes = {
    * Font weight.
    */
   weight: PropTypes.oneOf(Object.keys(labelWeights)),
+
+  /**
+   * Max Length of Input
+   */
+  maxLength: PropTypes.number,
+
+  /**
+   * Min Length of Input
+   */
+  minLength: PropTypes.number,
 };
 // Default Props.
 // -----------------------------------------------------------------------------

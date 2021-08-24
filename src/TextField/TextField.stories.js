@@ -28,5 +28,6 @@ Password.args = {
   helperText: "Helper text lorem ipsum",
   placeholder: "Placeholder",
   type: "password",
+  maxLength: 8,
 };
 Password.storyName = "Password Text Field";
