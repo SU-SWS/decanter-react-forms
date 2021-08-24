@@ -65,14 +65,14 @@
     "@babel/preset-env": "^7.12.17",
     "@babel/preset-react": "^7.12.13",
     "@fullhuman/postcss-purgecss": "^3.0.0",
-    "@storybook/addon-a11y": "^6.1.19",
-    "@storybook/addon-actions": "^6.1.19",
-    "@storybook/addon-essentials": "^6.1.19",
-    "@storybook/addon-links": "^6.1.15",
+    "@storybook/addon-a11y": "^6.3.7",
+    "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-links": "^6.3.7",
     "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/addon-viewport": "^6.1.19",
-    "@storybook/node-logger": "^6.1.19",
-    "@storybook/react": "^6.1.19",
+    "@storybook/addon-viewport": "^6.3.7",
+    "@storybook/node-logger": "^6.3.7",
+    "@storybook/react": "^6.3.7",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@whitespace/storybook-addon-html": "^5.0.0",
@@ -98,8 +98,8 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-test-renderer": "^16.14.0",
-    "storybook-addon-designs": "^6.0.0",
-    "storybook-addon-pseudo-states": "^1.0.0-rc.3",
-    "storybook-dark-mode": "^1.0.4"
+    "storybook-addon-designs": "^6.1.0",
+    "storybook-addon-pseudo-states": "^1.0.0",
+    "storybook-dark-mode": "^1.0.8"
   }
 }
