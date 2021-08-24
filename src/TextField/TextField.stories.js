@@ -13,33 +13,64 @@ export const Default = TextFieldTemplate.bind({});
 Default.args = {
   id: "su-text",
   label: "Text Field",
-  weight: "bold",
+  fontWeight: "bold",
   helperText: "Helper text lorem ipsum",
   placeholder: "Placeholder",
   type: "text",
 };
 Default.storyName = "Default Text Field";
 
-export const Password = TextFieldTemplate.bind({});
-Password.args = {
+export const Disabled = TextFieldTemplate.bind({});
+Disabled.args = {
   id: "su-text",
-  label: "Password",
-  weight: "bold",
+  label: "Text Field",
+  fontWeight: "bold",
   helperText: "Helper text lorem ipsum",
   placeholder: "Placeholder",
-  type: "password",
-  maxLength: 8,
+  type: "text",
+  isDisabled: true,
 };
-Password.storyName = "Password Text Field";
+Disabled.storyName = "Disabled Text Field";
 
 export const Email = TextFieldTemplate.bind({});
 Email.args = {
   id: "su-text",
   label: "Email",
-  weight: "bold",
-  helperText: "Helper text lorem ipsum",
-  placeholder: "Placeholder",
+  fontWeight: "bold",
+  placeholder: "Jane@stanford.edu",
   type: "email",
-  required: true,
 };
-Email.storyName = "Required Email Text Field";
+Email.storyName = "Email Field";
+
+export const ReqEmail = TextFieldTemplate.bind({});
+ReqEmail.args = {
+  id: "su-text",
+  label: "Email",
+  fontWeight: "bold",
+  placeholder: "Jane@stanford.edu",
+  type: "email",
+  isRequired: true,
+};
+ReqEmail.storyName = "Required Email Field";
+
+export const Password = TextFieldTemplate.bind({});
+Password.args = {
+  id: "su-text",
+  label: "Password",
+  fontWeight: "bold",
+  helperText: "Helper text lorem ipsum",
+  placeholder: "Password",
+  type: "password",
+  maxLength: 8,
+};
+Password.storyName = "Password Text Field";
+
+export const Date = TextFieldTemplate.bind({});
+Date.args = {
+  id: "su-text",
+  label: "Date",
+  fontWeight: "bold",
+  helperText: "Choose a date",
+  type: "date",
+};
+Date.storyName = "Date Field";

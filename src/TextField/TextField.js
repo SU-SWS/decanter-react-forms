@@ -10,9 +10,10 @@ import { labelWeights } from "./TextField.levers";
 export const TextField = (
   {
     className,
+    isDisabled,
     id,
     label,
-    weight,
+    fontWeight,
     helperText,
     placeholder,
     type,
@@ -25,14 +26,14 @@ export const TextField = (
 ) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
-  const levers = {};
+  let weight = "regular";
 
   // Levers
   // ---------------------------------------------------------------------------
 
   // props.weight
-  if (weight && weight in labelWeights) {
-    levers.weight = labelWeights[weight];
+  if (fontWeight && fontWeight in labelWeights) {
+    weight = labelWeights[fontWeight];
   }
 
   // Handle Character Counter
@@ -44,24 +45,25 @@ export const TextField = (
 
   return (
     <div className={className}>
-      <label htmlFor={id} className={dcnb(levers.weight, "su-label su-mb-5")}>
+      <label htmlFor={id} className={dcnb(weight, "su-label su-mb-5")}>
         {isRequired ? "*" : ""}
         {label}
       </label>
       {helperText && <p className="su-color-cool-grey su-mb-5">{helperText}</p>}
       <input
         id={id}
-        className="su-input su-border-b-2 su-rounded su-px-7 su-pt-7 su-pb-8"
+        className="su-input su-border-b-2 su-rounded su-px-7 su-pt-7 su-pb-8 disabled:su-bg-cool-grey"
         type={type}
         placeholder={placeholder}
         maxLength={maxLength ?? null}
         minLength={minLength ?? null}
+        disabled={isDisabled}
         required={isRequired}
         onChange={handleOnChange}
         {...props}
       />
       {maxLength ? (
-        <p>
+        <p className="su-color-cool-grey su-pl-7">
           {charCount}/{maxLength}
         </p>
       ) : (
@@ -105,7 +107,12 @@ TextField.propTypes = {
   /**
    * Font weight.
    */
-  weight: PropTypes.oneOf(Object.keys(labelWeights)),
+  fontWeight: PropTypes.oneOf(Object.keys(labelWeights)),
+
+  /**
+   * Is the input disabled?
+   */
+  isDisabled: PropTypes.bool,
 
   /**
    * Is the input required?
@@ -124,4 +131,7 @@ TextField.propTypes = {
 };
 // Default Props.
 // -----------------------------------------------------------------------------
-TextField.defaultProps = {};
+TextField.defaultProps = {
+  isRequired: false,
+  isDisabled: false,
+};
