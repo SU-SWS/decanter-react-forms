@@ -19,6 +19,7 @@ export const TextField = (
     maxLength,
     minLength,
     errorText,
+    isRequired,
   },
   props
 ) => {
@@ -37,6 +38,7 @@ export const TextField = (
   return (
     <div className={className}>
       <label htmlFor={id} className={dcnb(levers.weight, "su-label su-mb-5")}>
+        {isRequired ? "*" : ""}
         {label}
       </label>
       {helperText && <p className="su-color-cool-grey su-mb-5">{helperText}</p>}
