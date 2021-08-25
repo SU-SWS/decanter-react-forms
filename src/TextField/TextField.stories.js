@@ -1,6 +1,6 @@
 import React from "react";
 import { TextField } from "./TextField";
-import { labelWeights } from "./TextField.levers";
+import { labelWeights, iconAlignment } from "./TextField.levers";
 
 export default {
   title: "Composite/Text Field",
@@ -10,6 +10,12 @@ export default {
       control: {
         type: "select",
         options: labelWeights,
+      },
+    },
+    iconAlignment: {
+      control: {
+        type: "select",
+        options: iconAlignment,
       },
     },
   },
@@ -31,7 +37,7 @@ Default.storyName = "Default Text Field";
 export const Disabled = TextFieldTemplate.bind({});
 Disabled.args = {
   id: "su-text",
-  label: "Text Field",
+  label: "Disable Text Field",
   fontWeight: "bold",
   helperText: "Helper text lorem ipsum",
   placeholder: "Placeholder",
@@ -47,6 +53,7 @@ Email.args = {
   fontWeight: "bold",
   placeholder: "Jane@stanford.edu",
   type: "email",
+  isIcon: true,
 };
 Email.storyName = "Email Field";
 
@@ -70,6 +77,7 @@ Password.args = {
   placeholder: "Password",
   type: "password",
   maxLength: 8,
+  showCharCount: true,
 };
 Password.storyName = "Password Text Field";
 
@@ -83,15 +91,23 @@ Date.args = {
 };
 Date.storyName = "Date Field";
 
-export const TextArea = TextFieldTemplate.bind({});
-TextArea.args = {
-  element: "textarea",
+export const Error = TextFieldTemplate.bind({});
+Error.args = {
   id: "su-text",
-  label: " Long Text Field",
-  fontWeight: "bold",
+  label: "Error Text Field",
   placeholder: "Placeholder",
   type: "text",
-  rows: "4",
-  cols: "50",
+  isError: true,
+  errorText: "Error: Lorem ipsum message here!",
 };
-TextArea.storyName = "Long Text Field";
+Error.storyName = "Error Text Field";
+
+export const Valid = TextFieldTemplate.bind({});
+Valid.args = {
+  id: "su-text",
+  label: "Valid Text Field",
+  placeholder: "Placeholder",
+  type: "text",
+  isValid: true,
+};
+Valid.storyName = "Valid Text Field";

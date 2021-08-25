@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
-import { textFieldElements, labelWeights } from "./TextField.levers";
+import { MailIcon, XIcon, CheckIcon } from "@heroicons/react/outline";
+import { labelWeights, iconAlignment } from "./TextField.levers";
 
 /**
  * Text Input  Component
@@ -10,7 +11,6 @@ import { textFieldElements, labelWeights } from "./TextField.levers";
 export const TextField = (
   {
     className,
-    element,
     id,
     label,
     fontWeight,
@@ -20,18 +20,22 @@ export const TextField = (
     maxLength,
     minLength,
     errorText,
-    rows,
-    cols,
+    isError,
+    isValid,
+    isIcon,
+    iconPosition,
     isDisabled,
     isRequired,
+    showCharCount,
   },
   props
 ) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
-  let Element = "input";
-  let elementClass = "su-input";
+  const iconPositionStyle = iconAlignment[iconPosition];
   let weight = "regular";
+  let disabledStyle = "";
+  let errorInputStyle = "";
 
   // Levers
   // ---------------------------------------------------------------------------
@@ -41,10 +45,12 @@ export const TextField = (
     weight = labelWeights[fontWeight];
   }
 
-  // Element
-  if (element) {
-    Element = "textarea";
-    elementClass = "su-textarea";
+  if (isDisabled) {
+    disabledStyle = "su-bg-black-10";
+  }
+
+  if (isError) {
+    errorInputStyle = "su-border-digital-red";
   }
 
   // Handle Character Counter
@@ -60,27 +66,44 @@ export const TextField = (
         {isRequired ? "*" : ""}
         {label}
       </label>
-      {helperText && <p className="su-color-cool-grey su-mb-5">{helperText}</p>}
-      <Element
+      {helperText && <p className="su-text-cool-grey su-mb-5">{helperText}</p>}
+      {isIcon ? <MailIcon className={dcnb("su-h-4", iconPositionStyle)} /> : ""}
+      <input
         id={id}
         className={dcnb(
-          elementClass,
-          "su-input su-border-b-2 su-rounded su-px-7 su-pt-7 su-pb-8 disabled:su-bg-cool-grey"
+          "su-input su-border-b-2 su-rounded su-px-7 su-pt-7 su-pb-8",
+          disabledStyle,
+          errorInputStyle
         )}
         type={type}
         placeholder={placeholder}
         maxLength={maxLength ?? null}
         minLength={minLength ?? null}
-        rows={rows ?? null}
-        cols={cols ?? null}
         disabled={isDisabled}
         required={isRequired}
         onChange={handleOnChange}
         {...props}
       />
-      {maxLength ? (
-        <p className="su-color-cool-grey su-pl-7">
+      {showCharCount ? (
+        <p className="su-text-cool-grey su-pl-7">
           {charCount}/{maxLength}
+        </p>
+      ) : (
+        ""
+      )}
+      {isError ? (
+        <p className="su-text-digital-red su-text-16">
+          <XIcon className="su-w-1em su-inline su-pr-3" />
+          {errorText}
+        </p>
+      ) : (
+        ""
+      )}
+
+      {isValid ? (
+        <p className="su-text-digital-green su-text-16">
+          <CheckIcon className="su-w-1em su-inline su-pr-3" />
+          Valid Input
         </p>
       ) : (
         ""
@@ -116,6 +139,11 @@ TextField.propTypes = {
   placeholder: PropTypes.string,
 
   /**
+   * Error Text
+   */
+  errorText: PropTypes.string,
+
+  /**
    * Input Type
    */
   type: PropTypes.string,
@@ -126,6 +154,26 @@ TextField.propTypes = {
   fontWeight: PropTypes.oneOf(Object.keys(labelWeights)),
 
   /**
+   * Icon Position
+   */
+  iconPosition: PropTypes.oneOf(Object.keys(iconAlignment)),
+
+  /**
+   * Is there an error?
+   */
+  isError: PropTypes.bool,
+
+  /**
+   * Is the input valid?
+   */
+  isValid: PropTypes.bool,
+
+  /**
+   * Is there an icon?
+   */
+  isIcon: PropTypes.bool,
+
+  /**
    * Is the input disabled?
    */
   isDisabled: PropTypes.bool,
@@ -134,6 +182,11 @@ TextField.propTypes = {
    * Is the input required?
    */
   isRequired: PropTypes.bool,
+
+  /**
+   * Should the char count be displayed?
+   */
+  showCharCount: PropTypes.bool,
 
   /**
    * Rows of Textarea
@@ -160,4 +213,8 @@ TextField.propTypes = {
 TextField.defaultProps = {
   isRequired: false,
   isDisabled: false,
+  isIcon: false,
+  isValid: false,
+  showCharCount: false,
+  iconPosition: "left",
 };
