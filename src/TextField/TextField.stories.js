@@ -1,10 +1,18 @@
 import React from "react";
 import { TextField } from "./TextField";
+import { labelWeights } from "./TextField.levers";
 
 export default {
   title: "Composite/Text Field",
   component: TextField,
-  argTypes: {},
+  argTypes: {
+    labelWeights: {
+      control: {
+        type: "select",
+        options: labelWeights,
+      },
+    },
+  },
 };
 
 const TextFieldTemplate = ({ ...rest }) => <TextField {...rest} required />;
@@ -74,3 +82,16 @@ Date.args = {
   type: "date",
 };
 Date.storyName = "Date Field";
+
+export const TextArea = TextFieldTemplate.bind({});
+TextArea.args = {
+  element: "textarea",
+  id: "su-text",
+  label: " Long Text Field",
+  fontWeight: "bold",
+  placeholder: "Placeholder",
+  type: "text",
+  rows: "4",
+  cols: "50",
+};
+TextArea.storyName = "Long Text Field";

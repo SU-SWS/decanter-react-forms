@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
-import { labelWeights } from "./TextField.levers";
+import { textFieldElements, labelWeights } from "./TextField.levers";
 
 /**
  * Text Input  Component
@@ -10,7 +10,7 @@ import { labelWeights } from "./TextField.levers";
 export const TextField = (
   {
     className,
-    isDisabled,
+    element,
     id,
     label,
     fontWeight,
@@ -20,20 +20,31 @@ export const TextField = (
     maxLength,
     minLength,
     errorText,
+    rows,
+    cols,
+    isDisabled,
     isRequired,
   },
   props
 ) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
+  let Element = "input";
+  let elementClass = "su-input";
   let weight = "regular";
 
   // Levers
   // ---------------------------------------------------------------------------
 
-  // props.weight
+  // Font Weight
   if (fontWeight && fontWeight in labelWeights) {
     weight = labelWeights[fontWeight];
+  }
+
+  // Element
+  if (element) {
+    Element = "textarea";
+    elementClass = "su-textarea";
   }
 
   // Handle Character Counter
@@ -50,13 +61,18 @@ export const TextField = (
         {label}
       </label>
       {helperText && <p className="su-color-cool-grey su-mb-5">{helperText}</p>}
-      <input
+      <Element
         id={id}
-        className="su-input su-border-b-2 su-rounded su-px-7 su-pt-7 su-pb-8 disabled:su-bg-cool-grey"
+        className={dcnb(
+          elementClass,
+          "su-input su-border-b-2 su-rounded su-px-7 su-pt-7 su-pb-8 disabled:su-bg-cool-grey"
+        )}
         type={type}
         placeholder={placeholder}
         maxLength={maxLength ?? null}
         minLength={minLength ?? null}
+        rows={rows ?? null}
+        cols={cols ?? null}
         disabled={isDisabled}
         required={isRequired}
         onChange={handleOnChange}
@@ -118,6 +134,16 @@ TextField.propTypes = {
    * Is the input required?
    */
   isRequired: PropTypes.bool,
+
+  /**
+   * Rows of Textarea
+   */
+  rows: PropTypes.number,
+
+  /**
+   * Cols of Textarea
+   */
+  cols: PropTypes.number,
 
   /**
    * Max Length of Input
