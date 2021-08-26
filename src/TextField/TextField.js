@@ -129,7 +129,7 @@ export const TextField = (
       )}
       {isError ? (
         <p className="su-text-digital-red su-text-16">
-          <XIcon className="su-w-1em su-inline su-pr-3" />
+          <XIcon className="su-w-20 su-inline su-mr-3" />
           {errorText}
         </p>
       ) : (
@@ -138,7 +138,7 @@ export const TextField = (
 
       {isValid ? (
         <p className="su-text-digital-green su-text-16">
-          <CheckIcon className="su-w-1em su-inline su-pr-3" />
+          <CheckIcon className="su-w-20 su-inline su-mr-3" />
           {"Valid Input" ?? validText}
         </p>
       ) : (
