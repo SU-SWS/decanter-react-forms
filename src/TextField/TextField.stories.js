@@ -1,7 +1,7 @@
 import React from "react";
+import { UserCircleIcon } from "@heroicons/react/outline";
 import { TextField } from "./TextField";
 import { labelWeights, iconAlignment } from "./TextField.levers";
-import { UserCircleIcon } from "@heroicons/react/outline";
 
 export default {
   title: "Composite/Text Field",
