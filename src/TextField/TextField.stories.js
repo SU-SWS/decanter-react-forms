@@ -1,6 +1,7 @@
 import React from "react";
 import { TextField } from "./TextField";
 import { labelWeights, iconAlignment } from "./TextField.levers";
+import { UserCircleIcon } from "@heroicons/react/outline";
 
 export default {
   title: "Composite/Text Field",
@@ -12,7 +13,7 @@ export default {
         options: labelWeights,
       },
     },
-    iconAlignment: {
+    iconPosition: {
       control: {
         type: "select",
         options: iconAlignment,
@@ -21,7 +22,7 @@ export default {
   },
 };
 
-const TextFieldTemplate = ({ ...rest }) => <TextField {...rest} required />;
+const TextFieldTemplate = ({ ...rest }) => <TextField {...rest} />;
 
 export const Default = TextFieldTemplate.bind({});
 Default.args = {
@@ -54,6 +55,7 @@ Email.args = {
   placeholder: "Jane@stanford.edu",
   type: "email",
   isIcon: true,
+  iconPosition: "right",
 };
 Email.storyName = "Email Field";
 
@@ -111,3 +113,19 @@ Valid.args = {
   isValid: true,
 };
 Valid.storyName = "Valid Text Field";
+
+const CustomIconTemplate = ({ ...rest }) => (
+  <TextField {...rest} icon={<UserCircleIcon />} />
+);
+
+export const UserInput = CustomIconTemplate.bind({});
+UserInput.args = {
+  id: "su-text",
+  label: "Username",
+  fontWeight: "bold",
+  placeholder: "FooBar",
+  type: "text",
+  isIcon: true,
+  iconPosition: "left",
+};
+UserInput.storyName = "Custom Input Field with icon";

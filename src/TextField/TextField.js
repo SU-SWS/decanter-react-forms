@@ -16,10 +16,12 @@ export const TextField = (
     fontWeight,
     helperText,
     placeholder,
+    icon,
     type,
     maxLength,
     minLength,
     errorText,
+    validText,
     isError,
     isValid,
     isIcon,
@@ -32,10 +34,16 @@ export const TextField = (
 ) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
-  const iconPositionStyle = iconAlignment[iconPosition];
   let weight = "regular";
   let disabledStyle = "";
+  let errorLabelStyle = "";
   let errorInputStyle = "";
+  let iconPositionStyle =
+    "su-absolute su-bottom-0 su-left-0 su-ml-19 su-mt-19 su-mb-20";
+  let iconInputStyle = "";
+
+  // Default Icon — Mail Envelope
+  const defaultIcon = <MailIcon />;
 
   // Levers
   // ---------------------------------------------------------------------------
@@ -50,8 +58,20 @@ export const TextField = (
   }
 
   if (isError) {
+    errorLabelStyle = "su-text-digital-red";
     errorInputStyle = "su-border-digital-red";
   }
+
+  if (isIcon && iconPosition === "left") {
+    iconInputStyle = "su-pl-58";
+  }
+
+  if (iconPosition === "right") {
+    iconPositionStyle =
+      "su-absolute su-bottom-0 su-right-0 su-mr-19 su-mt-19 su-mb-20";
+  }
+
+  const inputIcon = icon ?? defaultIcon;
 
   // Handle Character Counter
   // ---------------------------------------------------------------------------
@@ -62,30 +82,46 @@ export const TextField = (
 
   return (
     <div className={className}>
-      <label htmlFor={id} className={dcnb(weight, "su-label su-mb-5")}>
+      <label
+        htmlFor={id}
+        className={dcnb("su-label su-mb-5 su-text-18", weight, errorLabelStyle)}
+      >
         {isRequired ? "*" : ""}
         {label}
       </label>
-      {helperText && <p className="su-text-cool-grey su-mb-5">{helperText}</p>}
-      {isIcon ? <MailIcon className={dcnb("su-h-4", iconPositionStyle)} /> : ""}
-      <input
-        id={id}
-        className={dcnb(
-          "su-input su-border-b-2 su-rounded su-px-7 su-pt-7 su-pb-8",
-          disabledStyle,
-          errorInputStyle
+      {helperText && (
+        <p className="su-text-cool-grey su-mb-5 su-text-18 su-sans">
+          {helperText}
+        </p>
+      )}
+      <div className="su-relative su-w-300">
+        {isIcon ? (
+          <span className={dcnb("su-w-30", iconPositionStyle)}>
+            {inputIcon}
+          </span>
+        ) : (
+          ""
         )}
-        type={type}
-        placeholder={placeholder}
-        maxLength={maxLength ?? null}
-        minLength={minLength ?? null}
-        disabled={isDisabled}
-        required={isRequired}
-        onChange={handleOnChange}
-        {...props}
-      />
+        <input
+          id={id}
+          className={dcnb(
+            "su-input su-border-b-2 su-rounded su-pt-19 su-pb-20 su-px-19 su-w-full",
+            disabledStyle,
+            errorInputStyle,
+            iconInputStyle
+          )}
+          type={type}
+          placeholder={placeholder}
+          maxLength={maxLength ?? null}
+          minLength={minLength ?? null}
+          disabled={isDisabled}
+          required={isRequired}
+          onChange={handleOnChange}
+          {...props}
+        />
+      </div>
       {showCharCount ? (
-        <p className="su-text-cool-grey su-pl-7">
+        <p className="su-text-cool-grey su-pl-7 su-text-18 su-mt-3">
           {charCount}/{maxLength}
         </p>
       ) : (
@@ -103,7 +139,7 @@ export const TextField = (
       {isValid ? (
         <p className="su-text-digital-green su-text-16">
           <CheckIcon className="su-w-1em su-inline su-pr-3" />
-          Valid Input
+          {"Valid Input" ?? validText}
         </p>
       ) : (
         ""
@@ -142,6 +178,16 @@ TextField.propTypes = {
    * Error Text
    */
   errorText: PropTypes.string,
+
+  /**
+   * Validation Text
+   */
+  validText: PropTypes.string,
+
+  /**
+   * Icon Name
+   */
+  icon: PropTypes.string,
 
   /**
    * Input Type

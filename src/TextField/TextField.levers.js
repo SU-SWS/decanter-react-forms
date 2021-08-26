@@ -9,6 +9,6 @@ export const labelWeights = {
 };
 
 export const iconAlignment = {
-  left: "su-absolute su-top-0 su-left-0 su-pr-7 su-pt-7 su-pb-8",
-  right: "su-absolute su-top-0 su-right-0 su-pr-7 su-pt-7 su-pb-8",
+  left: "left",
+  right: "right",
 };
