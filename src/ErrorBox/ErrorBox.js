@@ -8,7 +8,7 @@ import { DismissButton } from "../DismissButton/DismissButton";
  * Error Summary Box Component
  *
  */
-export const ErrorBox = ({ className, children, ...props }) => {
+export const ErrorBox = ({ className, children }) => {
   const [isDismissed, setDismissed] = useState(false);
 
   // Dismissed State.
@@ -25,7 +25,7 @@ export const ErrorBox = ({ className, children, ...props }) => {
         className
       )}
     >
-      <div>
+      <div className="su-mt-6">
         <ExclamationCircleIcon
           className="su-w-20 su-mr-6 su-text-digital-red"
           aria-hidden="true"
