@@ -25,9 +25,9 @@ export const ErrorBox = ({ className, children }) => {
         className
       )}
     >
-      <div className="su-mt-6">
+      <div className="su-p-4 su-mr-6">
         <ExclamationCircleIcon
-          className="su-w-20 su-mr-6 su-text-digital-red"
+          className="su-w-20 su-text-digital-red"
           aria-hidden="true"
         />
       </div>
