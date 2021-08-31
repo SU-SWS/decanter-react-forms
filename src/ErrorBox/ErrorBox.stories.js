@@ -2,7 +2,7 @@ import React from "react";
 import { ErrorBox } from "./ErrorBox";
 
 const errorBody = (
-  <p className="last:su-mb-0 su-leading-display su-card-paragraph">
+  <p className="last:su-mb-0 su-leading-display su-card-paragraph su-text-18">
     <strong>Account locked for your security</strong>
     <br />
     You attempted to log in too many times. Please try again in 24 hours or
@@ -11,7 +11,7 @@ const errorBody = (
 );
 
 const errorListBody = (
-  <div className="last:su-mb-0 su-leading-display su-card-paragraph">
+  <div className="last:su-mb-0 su-leading-display su-card-paragraph su-text-18">
     <p className="su-mb-6">
       <strong>Please revise inputs to the following fields.</strong>
     </p>
