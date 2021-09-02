@@ -263,4 +263,5 @@ TextField.defaultProps = {
   isValid: false,
   showCharCount: false,
   iconPosition: "left",
+  placeholder: "Placeholder text",
 };
