@@ -13,15 +13,9 @@ export const FormTextField = ({ name, control, ...props }) => (
   <Controller
     name={name}
     control={control}
-    render={({
-      field: { onChange, value },
-      fieldState: { error },
-      formState: { isValid },
-    }) => (
+    render={({ field: { onChange, value } }) => (
       <TextField
         onChange={(e) => onChange(e.target.value)}
-        errorText={error ? "Error!" : null}
-        error={error}
         value={value}
         {...props}
       />
