@@ -1,5 +1,5 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { FormTextField } from "./FormTextField";
 import { TextField } from "../TextField/TextField";
 // import {  } from "./FormTextField.levers";
@@ -7,25 +7,20 @@ import { TextField } from "../TextField/TextField";
 export default {
   title: "Form Elements/Text Field",
   component: FormTextField,
-  subcomponent: { TextField },
+  subcomponents: { TextField },
 };
 
-const FormTextFieldTemplate = ({ ...rest }) => {
-  const { control } = useForm({
-    defaultValues: { textValue: "" },
-  });
-  const onSubmit = (data) => console.log(data);
+const FormTextFieldTemplate = ({ ...props }) => {
+  const methods = useForm();
+  const { control, handleSubmit } = methods;
   return (
-    <>
-      <FormTextField {...rest} control={control} />
-      <button
+    <form onSubmit={handleSubmit((data) => console.log(data))}>
+      <FormTextField {...props} control={control} />
+      <input
         className="su-bg-digital-red su-text-white su-p-10 su-mt-10"
-        type="button"
-        onClick={onSubmit}
-      >
-        Submit
-      </button>
-    </>
+        type="submit"
+      />
+    </form>
   );
 };
 
@@ -40,3 +35,17 @@ Default.args = {
   type: "text",
 };
 Default.storyName = "Default Text Field";
+
+export const Password = FormTextFieldTemplate.bind({});
+Password.args = {
+  name: "passwordValue",
+  id: "su-text",
+  label: "Password",
+  fontWeight: "bold",
+  helperText: "Helper text lorem ipsum",
+  placeholder: "Password",
+  type: "password",
+  maxLength: 8,
+  showCharCount: true,
+};
+Password.storyName = "Password Text Field";

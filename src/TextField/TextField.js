@@ -29,6 +29,7 @@ export const TextField = (
     isDisabled,
     isRequired,
     showCharCount,
+    onChange,
   },
   props
 ) => {
@@ -116,11 +117,14 @@ export const TextField = (
           minLength={minLength ?? null}
           disabled={isDisabled}
           required={isRequired}
-          onChange={handleOnChange}
+          onChange={(e) => {
+            onChange(e);
+            handleOnChange(e);
+          }}
           {...props}
         />
       </div>
-      {showCharCount ? (
+      {showCharCount && maxLength ? (
         <p className="su-text-cool-grey su-pl-7 su-text-18 su-mt-3">
           {charCount}/{maxLength}
         </p>
