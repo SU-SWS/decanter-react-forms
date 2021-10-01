@@ -24,7 +24,7 @@ var Example = function Example(_ref) {
       props = _objectWithoutPropertiesLoose(_ref, _excluded);
 
   return /*#__PURE__*/React.createElement("div", {
-    className: dcnb("su-example", className)
+    className: dcnb('su-example', className)
   }, children);
 };
 Example.propTypes = {
