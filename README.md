@@ -1,13 +1,13 @@
 # [Decanter React Forms](https://github.com/SU-SWS/decanter-react-forms)
 
-[![NPM](https://img.shields.io/npm/v/decanter-react.svg)](https://www.npmjs.com/package/decanter-react)
+[![NPM](https://img.shields.io/npm/v/decanter-react-forms.svg)](https://www.npmjs.com/package/decanter-react-forms)
 [![Code Style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 Changelog: [CHANGELOG.md](CHANGELOG.md)
 
 ## Description
 
-A React Component Library using Decanter V7+ and TailWindCSS
+A React Component Library using Decanter React and React Hook Forms
 
 ## Install
 
