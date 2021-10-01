@@ -1,6 +1,6 @@
 {
   "name": "decanter-react-forms",
-  "version": "1.0.7",
+  "version": "0.0.1-alpha.0",
   "description": "Decanter Extensible React Forms Library",
   "source": "src/index.js",
   "main": "dist/decanter-react-forms.js",
@@ -19,7 +19,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "scripts": {
     "package": "microbundle-crl -o dist/ --no-compress --jsx React.createElement --jsxFragment React.Fragment --sourcemap false --globals prop-types=PropTypes,cnbuilder=dcnb --external prop-types,cnbuilder",
